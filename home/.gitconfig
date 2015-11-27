@@ -23,35 +23,10 @@
   excludesfile = /Users/clement/.gitignore_global
 [push]
   default = simple
-[http]
-  sslVerify = false
-#[branch]
-#  autosetuprebase = always
 [diff]
   algorithm = minimal
-[merge]
-	tool = p4merge
-#[difftool "sourcetree"]
-#	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-#	path = 
-[mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.3/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
 [rerere]
 	enabled = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool]
-	prompt = false
-	keepBackup = false
-[mergetool "p4merge"]
-	path = /usr/local/bin/p4merge
-[pul]
-	rebase = true
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
