@@ -10,22 +10,49 @@
 	linenumber = "green"
 	match = "red bold"
 [alias]
-  rg = "grep --heading --break -i"
-[grep]
-	lineNumber = true
+	# Basic Alias
+	cp = cherry-pick
+	st = status -s
+	cl = clone
 	ci = commit
 	co = checkout
-	st = status
 	br = branch
+
+	# Diff
+	diff = diff --word-diff
+	dc = diff --cached
+	fl = log -u
+  lc  = "!f() { git ll "$1"^.."$1"; }; f"
+	dr  = "!f() { git diff "$1"^.."$1"; }; f"
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+
+	# Stash
+	sl = stash list
+	sa = stash apply
+	ss = stash save
+
+	# Logs
 	lo = log --oneline
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	glg = log --stat --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
-	assume   = update-index --assume-unchanged
+	# Tags
+	lt = describe --tags --abbrev=0
+
+	# Assume
+	assume = update-index --assume-unchanged
 	unassume = update-index --no-assume-unchanged
-	assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
-	ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
-	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+
+	# Merge
+	ours = "!f() { git co --ours $@ && git add $@; }; f"
+	theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+
+	# Search
+  rg = "grep --heading --break -i"
+
+[grep]
+	lineNumber = true
 [core]
 	editor = vim
 	pager = less
